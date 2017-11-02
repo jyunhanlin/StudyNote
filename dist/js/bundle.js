@@ -34442,7 +34442,11 @@ function Note(props) {
     );
   });
 
-  return { listNotes: listNotes };
+  return _react2.default.createElement(
+    'div',
+    null,
+    listNotes
+  );
 }
 
 Note.propTypes = {

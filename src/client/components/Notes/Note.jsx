@@ -19,7 +19,9 @@ function Note(props) {
   ));
 
   return (
-    {listNotes}
+    <div>
+      {listNotes}
+    </div>
   );
 }
 
