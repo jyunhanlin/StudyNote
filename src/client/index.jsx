@@ -5,6 +5,8 @@ import { createStore, compose, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import thunkMiddleware from 'redux-thunk';
 
+import { BrowserRouter } from 'react-router-dom';
+
 import StudyNote from './components/StudyNotes';
 import rootReducer from './states/rootReducer';
 
@@ -15,7 +17,9 @@ const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunkMid
 
 ReactDOM.render(
   <Provider store={store}>
-    <StudyNote />
+    <BrowserRouter>
+      <StudyNote />
+    </BrowserRouter>
   </Provider>,
   document.getElementById('app'),
 );

@@ -2,8 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import {
-  Navbar, NavbarBrand, Nav,
+  Navbar, NavbarBrand, Nav, Button,
 } from 'reactstrap';
+
+import { Link } from 'react-router-dom';
 
 import { setModal, setQueryText, createNote } from '../../states/post-actions';
 
@@ -37,6 +39,9 @@ class HeaderBar extends React.Component {
     return (
       <Navbar color="faded" light expand>
         <NavbarBrand href="/">Study Notes</NavbarBrand>
+        <Button outline color="primary"><Link color="white" to="/about">About</Link></Button>
+        {'  '}
+        <Button outline color="primary"><Link to="/notes">Notes</Link></Button>
         <Nav className="ml-auto" navbar>
           <HeaderBarSearchInput handleQueryKeyPress={this.handleQueryKeyPress} />
           <HeaderBarAddNote

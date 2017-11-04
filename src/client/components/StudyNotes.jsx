@@ -1,7 +1,7 @@
 import React from 'react';
 
 import HeaderBar from './HeaderBar';
-import Notes from './Notes';
+import Main from './Main';
 
 
 import '../styles/bootstrap.min.css';
@@ -10,7 +10,7 @@ function StudyNotes() {
   return (
     <div>
       <HeaderBar />
-      <Notes />
+      <Main />
     </div>
   );
 }
