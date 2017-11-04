@@ -814,99 +814,6 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 
 /***/ }),
 /* 7 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(process) {/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- *
- */
-
-
-
-var emptyObject = {};
-
-if (process.env.NODE_ENV !== 'production') {
-  Object.freeze(emptyObject);
-}
-
-module.exports = emptyObject;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
-
-/***/ }),
-/* 8 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(process) {/**
- * Copyright (c) 2014-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- *
- */
-
-
-
-var emptyFunction = __webpack_require__(4);
-
-/**
- * Similar to invariant but only logs a warning if the condition is not met.
- * This can be used to log issues in development environments in critical
- * paths. Removing the logging code for production environments will keep the
- * same logic and follow the same code paths.
- */
-
-var warning = emptyFunction;
-
-if (process.env.NODE_ENV !== 'production') {
-  var printWarning = function printWarning(format) {
-    for (var _len = arguments.length, args = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
-      args[_key - 1] = arguments[_key];
-    }
-
-    var argIndex = 0;
-    var message = 'Warning: ' + format.replace(/%s/g, function () {
-      return args[argIndex++];
-    });
-    if (typeof console !== 'undefined') {
-      console.error(message);
-    }
-    try {
-      // --- Welcome to debugging React ---
-      // This error was thrown as a convenience so that you can use this stack
-      // to find the callsite that caused this warning to fire.
-      throw new Error(message);
-    } catch (x) {}
-  };
-
-  warning = function warning(condition, format) {
-    if (format === undefined) {
-      throw new Error('`warning(condition, format, ...args)` requires a warning ' + 'message argument');
-    }
-
-    if (format.indexOf('Failed Composite propType: ') === 0) {
-      return; // Ignore CompositeComponent proptype check.
-    }
-
-    if (!condition) {
-      for (var _len2 = arguments.length, args = Array(_len2 > 2 ? _len2 - 2 : 0), _key2 = 2; _key2 < _len2; _key2++) {
-        args[_key2 - 2] = arguments[_key2];
-      }
-
-      printWarning.apply(undefined, [format].concat(args));
-    }
-  };
-}
-
-module.exports = warning;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
-
-/***/ }),
-/* 9 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -6361,6 +6268,99 @@ var UncontrolledTooltip = components.UncontrolledTooltip;
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(0)))
 
 /***/ }),
+/* 8 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(process) {/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ */
+
+
+
+var emptyObject = {};
+
+if (process.env.NODE_ENV !== 'production') {
+  Object.freeze(emptyObject);
+}
+
+module.exports = emptyObject;
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
+/* 9 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(process) {/**
+ * Copyright (c) 2014-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ */
+
+
+
+var emptyFunction = __webpack_require__(4);
+
+/**
+ * Similar to invariant but only logs a warning if the condition is not met.
+ * This can be used to log issues in development environments in critical
+ * paths. Removing the logging code for production environments will keep the
+ * same logic and follow the same code paths.
+ */
+
+var warning = emptyFunction;
+
+if (process.env.NODE_ENV !== 'production') {
+  var printWarning = function printWarning(format) {
+    for (var _len = arguments.length, args = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+      args[_key - 1] = arguments[_key];
+    }
+
+    var argIndex = 0;
+    var message = 'Warning: ' + format.replace(/%s/g, function () {
+      return args[argIndex++];
+    });
+    if (typeof console !== 'undefined') {
+      console.error(message);
+    }
+    try {
+      // --- Welcome to debugging React ---
+      // This error was thrown as a convenience so that you can use this stack
+      // to find the callsite that caused this warning to fire.
+      throw new Error(message);
+    } catch (x) {}
+  };
+
+  warning = function warning(condition, format) {
+    if (format === undefined) {
+      throw new Error('`warning(condition, format, ...args)` requires a warning ' + 'message argument');
+    }
+
+    if (format.indexOf('Failed Composite propType: ') === 0) {
+      return; // Ignore CompositeComponent proptype check.
+    }
+
+    if (!condition) {
+      for (var _len2 = arguments.length, args = Array(_len2 > 2 ? _len2 - 2 : 0), _key2 = 2; _key2 < _len2; _key2++) {
+        args[_key2 - 2] = arguments[_key2];
+      }
+
+      printWarning.apply(undefined, [format].concat(args));
+    }
+  };
+}
+
+module.exports = warning;
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
 /* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -6376,7 +6376,7 @@ var UncontrolledTooltip = components.UncontrolledTooltip;
 
 if (process.env.NODE_ENV !== 'production') {
   var invariant = __webpack_require__(5);
-  var warning = __webpack_require__(8);
+  var warning = __webpack_require__(9);
   var ReactPropTypesSecret = __webpack_require__(11);
   var loggedTypeFailures = {};
 }
@@ -7855,11 +7855,18 @@ function verifyPlainObject(value, displayName, methodName) {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.setModal = setModal;
 exports.setQueryText = setQueryText;
 exports.listNotes = listNotes;
 exports.createNote = createNote;
 
 var _api = __webpack_require__(94);
+
+function setModal() {
+  return {
+    type: 'SET_MODAL'
+  };
+}
 
 function setQueryText() {
   var queryText = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
@@ -7892,6 +7899,7 @@ function endListNotes(notes) {
 function listNotes(queryText) {
   var loading = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
 
+  // eslint-disable-next-line
   return function (dispatch, getState) {
     if (!loading) {
       dispatch(startLoading());
@@ -8225,7 +8233,7 @@ var _StudyNotes = __webpack_require__(82);
 
 var _StudyNotes2 = _interopRequireDefault(_StudyNotes);
 
-var _rootReducer = __webpack_require__(122);
+var _rootReducer = __webpack_require__(123);
 
 var _rootReducer2 = _interopRequireDefault(_rootReducer);
 
@@ -8255,7 +8263,7 @@ _reactDom2.default.render(_react2.default.createElement(
  This source code is licensed under the MIT license found in the
  LICENSE file in the root directory of this source tree.
 */
-var f=__webpack_require__(6),p=__webpack_require__(7);__webpack_require__(5);var r=__webpack_require__(4);
+var f=__webpack_require__(6),p=__webpack_require__(8);__webpack_require__(5);var r=__webpack_require__(4);
 function t(a){for(var b=arguments.length-1,d="Minified React error #"+a+"; visit http://facebook.github.io/react/docs/error-decoder.html?invariant\x3d"+a,e=0;e<b;e++)d+="\x26args[]\x3d"+encodeURIComponent(arguments[e+1]);b=Error(d+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings.");b.name="Invariant Violation";b.framesToPop=1;throw b;}
 var u={isMounted:function(){return!1},enqueueForceUpdate:function(){},enqueueReplaceState:function(){},enqueueSetState:function(){}};function v(a,b,d){this.props=a;this.context=b;this.refs=p;this.updater=d||u}v.prototype.isReactComponent={};v.prototype.setState=function(a,b){"object"!==typeof a&&"function"!==typeof a&&null!=a?t("85"):void 0;this.updater.enqueueSetState(this,a,b,"setState")};v.prototype.forceUpdate=function(a){this.updater.enqueueForceUpdate(this,a,"forceUpdate")};
 function w(a,b,d){this.props=a;this.context=b;this.refs=p;this.updater=d||u}function x(){}x.prototype=v.prototype;var y=w.prototype=new x;y.constructor=w;f(y,v.prototype);y.isPureReactComponent=!0;function z(a,b,d){this.props=a;this.context=b;this.refs=p;this.updater=d||u}var A=z.prototype=new x;A.constructor=z;f(A,v.prototype);A.unstable_isAsyncReactComponent=!0;A.render=function(){return this.props.children};
@@ -8293,8 +8301,8 @@ if (process.env.NODE_ENV !== "production") {
 'use strict';
 
 var objectAssign$1 = __webpack_require__(6);
-var require$$0 = __webpack_require__(8);
-var emptyObject = __webpack_require__(7);
+var require$$0 = __webpack_require__(9);
+var emptyObject = __webpack_require__(8);
 var invariant = __webpack_require__(5);
 var emptyFunction = __webpack_require__(4);
 var checkPropTypes = __webpack_require__(10);
@@ -9992,7 +10000,7 @@ module.exports = ReactEntry;
  LICENSE file in the root directory of this source tree.
  Modernizr 3.0.0pre (Custom Build) | MIT
 */
-var aa=__webpack_require__(1);__webpack_require__(5);var l=__webpack_require__(12),n=__webpack_require__(6),ba=__webpack_require__(20),ca=__webpack_require__(4),da=__webpack_require__(7),ea=__webpack_require__(21),fa=__webpack_require__(22),ha=__webpack_require__(23),ia=__webpack_require__(24);
+var aa=__webpack_require__(1);__webpack_require__(5);var l=__webpack_require__(12),n=__webpack_require__(6),ba=__webpack_require__(20),ca=__webpack_require__(4),da=__webpack_require__(8),ea=__webpack_require__(21),fa=__webpack_require__(22),ha=__webpack_require__(23),ia=__webpack_require__(24);
 function w(a){for(var b=arguments.length-1,c="Minified React error #"+a+"; visit http://facebook.github.io/react/docs/error-decoder.html?invariant\x3d"+a,d=0;d<b;d++)c+="\x26args[]\x3d"+encodeURIComponent(arguments[d+1]);b=Error(c+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings.");b.name="Invariant Violation";b.framesToPop=1;throw b;}aa?void 0:w("227");
 function ja(a){switch(a){case "svg":return"http://www.w3.org/2000/svg";case "math":return"http://www.w3.org/1998/Math/MathML";default:return"http://www.w3.org/1999/xhtml"}}
 var ka={Namespaces:{html:"http://www.w3.org/1999/xhtml",mathml:"http://www.w3.org/1998/Math/MathML",svg:"http://www.w3.org/2000/svg"},getIntrinsicNamespace:ja,getChildNamespace:function(a,b){return null==a||"http://www.w3.org/1999/xhtml"===a?ja(b):"http://www.w3.org/2000/svg"===a&&"foreignObject"===b?"http://www.w3.org/1999/xhtml":a}},la=null,oa={};
@@ -10322,13 +10330,13 @@ var invariant = __webpack_require__(5);
 var ExecutionEnvironment = __webpack_require__(12);
 var _assign = __webpack_require__(6);
 var EventListener = __webpack_require__(20);
-var require$$0 = __webpack_require__(8);
+var require$$0 = __webpack_require__(9);
 var hyphenateStyleName = __webpack_require__(47);
 var emptyFunction = __webpack_require__(4);
 var camelizeStyleName = __webpack_require__(49);
 var performanceNow = __webpack_require__(51);
 var propTypes = __webpack_require__(3);
-var emptyObject = __webpack_require__(7);
+var emptyObject = __webpack_require__(8);
 var checkPropTypes = __webpack_require__(10);
 var shallowEqual = __webpack_require__(21);
 var containsNode = __webpack_require__(22);
@@ -27760,7 +27768,7 @@ module.exports = performance || {};
 
 var emptyFunction = __webpack_require__(4);
 var invariant = __webpack_require__(5);
-var warning = __webpack_require__(8);
+var warning = __webpack_require__(9);
 var assign = __webpack_require__(6);
 
 var ReactPropTypesSecret = __webpack_require__(11);
@@ -29689,8 +29697,6 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
@@ -29699,43 +29705,22 @@ var _HeaderBar = __webpack_require__(83);
 
 var _HeaderBar2 = _interopRequireDefault(_HeaderBar);
 
-var _Notes = __webpack_require__(115);
+var _Notes = __webpack_require__(116);
 
 var _Notes2 = _interopRequireDefault(_Notes);
 
-__webpack_require__(117);
+__webpack_require__(118);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var StudyNotes = function (_React$Component) {
-  _inherits(StudyNotes, _React$Component);
-
-  function StudyNotes() {
-    _classCallCheck(this, StudyNotes);
-
-    return _possibleConstructorReturn(this, (StudyNotes.__proto__ || Object.getPrototypeOf(StudyNotes)).apply(this, arguments));
-  }
-
-  _createClass(StudyNotes, [{
-    key: 'render',
-    value: function render() {
-      return _react2.default.createElement(
-        'div',
-        null,
-        _react2.default.createElement(_HeaderBar2.default, null),
-        _react2.default.createElement(_Notes2.default, null)
-      );
-    }
-  }]);
-
-  return StudyNotes;
-}(_react2.default.Component);
+function StudyNotes() {
+  return _react2.default.createElement(
+    'div',
+    null,
+    _react2.default.createElement(_HeaderBar2.default, null),
+    _react2.default.createElement(_Notes2.default, null)
+  );
+}
 
 exports.default = StudyNotes;
 
@@ -29756,15 +29741,23 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _propTypes = __webpack_require__(3);
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
 var _reactRedux = __webpack_require__(16);
 
-var _reactstrap = __webpack_require__(9);
+var _reactstrap = __webpack_require__(7);
 
 var _postActions = __webpack_require__(33);
 
-var _HeaderBarItems = __webpack_require__(114);
+var _HeaderBarSearchInput = __webpack_require__(114);
 
-var _HeaderBarItems2 = _interopRequireDefault(_HeaderBarItems);
+var _HeaderBarSearchInput2 = _interopRequireDefault(_HeaderBarSearchInput);
+
+var _HeaderBarAddNote = __webpack_require__(115);
+
+var _HeaderBarAddNote2 = _interopRequireDefault(_HeaderBarAddNote);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -29780,7 +29773,12 @@ var HeaderBar = function (_React$Component) {
   function HeaderBar() {
     _classCallCheck(this, HeaderBar);
 
-    return _possibleConstructorReturn(this, (HeaderBar.__proto__ || Object.getPrototypeOf(HeaderBar)).apply(this, arguments));
+    var _this = _possibleConstructorReturn(this, (HeaderBar.__proto__ || Object.getPrototypeOf(HeaderBar)).call(this));
+
+    _this.handleQueryKeyPress = _this.handleQueryKeyPress.bind(_this);
+    _this.handlePost = _this.handlePost.bind(_this);
+    _this.handleModal = _this.handleModal.bind(_this);
+    return _this;
   }
 
   _createClass(HeaderBar, [{
@@ -29793,15 +29791,13 @@ var HeaderBar = function (_React$Component) {
     }
   }, {
     key: 'handlePost',
-    value: function handlePost() {
-      var note = {
-        subject: this.subject,
-        purpose: this.purpose,
-        attachment: this.attachment,
-        description: this.description
-      };
+    value: function handlePost(note) {
       this.props.dispatch((0, _postActions.createNote)(note));
-      this.toggle();
+    }
+  }, {
+    key: 'handleModal',
+    value: function handleModal() {
+      this.props.dispatch((0, _postActions.setModal)());
     }
   }, {
     key: 'render',
@@ -29817,12 +29813,12 @@ var HeaderBar = function (_React$Component) {
         _react2.default.createElement(
           _reactstrap.Nav,
           { className: 'ml-auto', navbar: true },
-          _react2.default.createElement(
-            _reactstrap.NavItem,
-            { className: 'search-input' },
-            _react2.default.createElement(_reactstrap.Input, { onKeyPress: this.handleQueryKeyPress, placeholder: 'Search Subject' })
-          ),
-          _react2.default.createElement(_HeaderBarItems2.default, null)
+          _react2.default.createElement(_HeaderBarSearchInput2.default, { handleQueryKeyPress: this.handleQueryKeyPress }),
+          _react2.default.createElement(_HeaderBarAddNote2.default, {
+            modal: this.props.modal,
+            handleModal: this.handleModal,
+            handlePost: this.handlePost
+          })
         )
       );
     }
@@ -29831,7 +29827,18 @@ var HeaderBar = function (_React$Component) {
   return HeaderBar;
 }(_react2.default.Component);
 
-exports.default = (0, _reactRedux.connect)()(HeaderBar);
+var mapStateToProps = function mapStateToProps(state) {
+  return {
+    modal: state.modal
+  };
+};
+
+HeaderBar.propTypes = {
+  modal: _propTypes2.default.bool.isRequired,
+  dispatch: _propTypes2.default.func.isRequired
+};
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps)(HeaderBar);
 
 /***/ }),
 /* 84 */
@@ -34143,7 +34150,11 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactstrap = __webpack_require__(9);
+var _propTypes = __webpack_require__(3);
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _reactstrap = __webpack_require__(7);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -34153,19 +34164,85 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var HeaderBarItems = function (_React$Component) {
-  _inherits(HeaderBarItems, _React$Component);
+var HeaderBarSearchInput = function (_React$Component) {
+  _inherits(HeaderBarSearchInput, _React$Component);
 
-  function HeaderBarItems(props) {
-    _classCallCheck(this, HeaderBarItems);
+  function HeaderBarSearchInput() {
+    _classCallCheck(this, HeaderBarSearchInput);
 
-    var _this = _possibleConstructorReturn(this, (HeaderBarItems.__proto__ || Object.getPrototypeOf(HeaderBarItems)).call(this, props));
+    var _this = _possibleConstructorReturn(this, (HeaderBarSearchInput.__proto__ || Object.getPrototypeOf(HeaderBarSearchInput)).call(this));
+
+    _this.handleQueryKeyPress = _this.handleQueryKeyPress.bind(_this);
+    return _this;
+  }
+
+  _createClass(HeaderBarSearchInput, [{
+    key: 'handleQueryKeyPress',
+    value: function handleQueryKeyPress(e) {
+      this.props.handleQueryKeyPress(e);
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        _reactstrap.NavItem,
+        { className: 'search-input' },
+        _react2.default.createElement(_reactstrap.Input, { onKeyPress: this.handleQueryKeyPress, placeholder: 'Search Subject' })
+      );
+    }
+  }]);
+
+  return HeaderBarSearchInput;
+}(_react2.default.Component);
+
+HeaderBarSearchInput.propTypes = {
+  handleQueryKeyPress: _propTypes2.default.func.isRequired
+};
+
+exports.default = HeaderBarSearchInput;
+
+/***/ }),
+/* 115 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = __webpack_require__(3);
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _reactstrap = __webpack_require__(7);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var HeaderBarAddNote = function (_React$Component) {
+  _inherits(HeaderBarAddNote, _React$Component);
+
+  function HeaderBarAddNote() {
+    _classCallCheck(this, HeaderBarAddNote);
+
+    var _this = _possibleConstructorReturn(this, (HeaderBarAddNote.__proto__ || Object.getPrototypeOf(HeaderBarAddNote)).call(this));
 
     _this.handleChange = _this.handleChange.bind(_this);
-
-    _this.state = {
-      modal: false
-    };
+    _this.handlePost = _this.handlePost.bind(_this);
+    _this.toggle = _this.toggle.bind(_this);
 
     _this.toggle = _this.toggle.bind(_this);
     _this.subject = '';
@@ -34175,17 +34252,27 @@ var HeaderBarItems = function (_React$Component) {
     return _this;
   }
 
-  _createClass(HeaderBarItems, [{
+  _createClass(HeaderBarAddNote, [{
     key: 'toggle',
     value: function toggle() {
-      this.setState({
-        modal: !this.state.modal
-      });
+      this.props.handleModal();
     }
   }, {
     key: 'handleChange',
     value: function handleChange(e) {
       this[e.target.name] = e.target.value;
+    }
+  }, {
+    key: 'handlePost',
+    value: function handlePost() {
+      var note = {
+        subject: this.subject,
+        purpose: this.purpose,
+        attachment: this.attachment,
+        description: this.description
+      };
+      this.props.handlePost(note);
+      this.toggle();
     }
   }, {
     key: 'render',
@@ -34200,7 +34287,7 @@ var HeaderBarItems = function (_React$Component) {
         ),
         _react2.default.createElement(
           _reactstrap.Modal,
-          { isOpen: this.state.modal, toggle: this.toggle },
+          { isOpen: this.props.modal, toggle: this.toggle },
           _react2.default.createElement(
             _reactstrap.ModalHeader,
             { toggle: this.toggle },
@@ -34284,13 +34371,19 @@ var HeaderBarItems = function (_React$Component) {
     }
   }]);
 
-  return HeaderBarItems;
+  return HeaderBarAddNote;
 }(_react2.default.Component);
 
-exports.default = HeaderBarItems;
+HeaderBarAddNote.propTypes = {
+  modal: _propTypes2.default.bool.isRequired,
+  handleModal: _propTypes2.default.func.isRequired,
+  handlePost: _propTypes2.default.func.isRequired
+};
+
+exports.default = HeaderBarAddNote;
 
 /***/ }),
-/* 115 */
+/* 116 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34312,9 +34405,9 @@ var _propTypes2 = _interopRequireDefault(_propTypes);
 
 var _reactRedux = __webpack_require__(16);
 
-var _reactstrap = __webpack_require__(9);
+var _reactstrap = __webpack_require__(7);
 
-var _Note = __webpack_require__(116);
+var _Note = __webpack_require__(117);
 
 var _Note2 = _interopRequireDefault(_Note);
 
@@ -34390,7 +34483,7 @@ var mapStateToProps = function mapStateToProps(state) {
 exports.default = (0, _reactRedux.connect)(mapStateToProps)(Notes);
 
 /***/ }),
-/* 116 */
+/* 117 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34408,7 +34501,7 @@ var _propTypes = __webpack_require__(3);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _reactstrap = __webpack_require__(9);
+var _reactstrap = __webpack_require__(7);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -34456,13 +34549,13 @@ Note.propTypes = {
 exports.default = Note;
 
 /***/ }),
-/* 117 */
+/* 118 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(118);
+var content = __webpack_require__(119);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -34470,7 +34563,7 @@ var transform;
 var options = {"hmr":true}
 options.transform = transform
 // add the styles to the DOM
-var update = __webpack_require__(120)(content, options);
+var update = __webpack_require__(121)(content, options);
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -34487,10 +34580,10 @@ if(false) {
 }
 
 /***/ }),
-/* 118 */
+/* 119 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(119)(undefined);
+exports = module.exports = __webpack_require__(120)(undefined);
 // imports
 
 
@@ -34501,7 +34594,7 @@ exports.push([module.i, "/*!\n * Bootstrap v4.0.0-beta (https://getbootstrap.com
 
 
 /***/ }),
-/* 119 */
+/* 120 */
 /***/ (function(module, exports) {
 
 /*
@@ -34583,7 +34676,7 @@ function toComment(sourceMap) {
 
 
 /***/ }),
-/* 120 */
+/* 121 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -34639,7 +34732,7 @@ var singleton = null;
 var	singletonCounter = 0;
 var	stylesInsertedAtTop = [];
 
-var	fixUrls = __webpack_require__(121);
+var	fixUrls = __webpack_require__(122);
 
 module.exports = function(list, options) {
 	if (typeof DEBUG !== "undefined" && DEBUG) {
@@ -34955,7 +35048,7 @@ function updateLink (link, options, obj) {
 
 
 /***/ }),
-/* 121 */
+/* 122 */
 /***/ (function(module, exports) {
 
 
@@ -35050,7 +35143,7 @@ module.exports = function (css) {
 
 
 /***/ }),
-/* 122 */
+/* 123 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35062,9 +35155,10 @@ Object.defineProperty(exports, "__esModule", {
 
 var _redux = __webpack_require__(13);
 
-var _postReducers = __webpack_require__(123);
+var _postReducers = __webpack_require__(124);
 
 var rootReducer = (0, _redux.combineReducers)({
+  modal: _postReducers.modal,
   queryText: _postReducers.queryText,
   notes: _postReducers.notes
 });
@@ -35072,7 +35166,7 @@ var rootReducer = (0, _redux.combineReducers)({
 exports.default = rootReducer;
 
 /***/ }),
-/* 123 */
+/* 124 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35084,8 +35178,21 @@ Object.defineProperty(exports, "__esModule", {
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
+exports.modal = modal;
 exports.queryText = queryText;
 exports.notes = notes;
+function modal() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
+  var action = arguments[1];
+
+  switch (action.type) {
+    case 'SET_MODAL':
+      return !state;
+    default:
+      return state;
+  }
+}
+
 function queryText() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
   var action = arguments[1];

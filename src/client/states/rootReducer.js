@@ -1,8 +1,9 @@
 import { combineReducers } from 'redux';
 
-import { queryText, notes } from './post-reducers';
+import { modal, queryText, notes } from './post-reducers';
 
 const rootReducer = combineReducers({
+  modal,
   queryText,
   notes,
 });

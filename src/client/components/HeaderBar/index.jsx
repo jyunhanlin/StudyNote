@@ -1,14 +1,23 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import {
-  Navbar, NavbarBrand, Nav, NavItem, Input,
+  Navbar, NavbarBrand, Nav,
 } from 'reactstrap';
 
-import { setQueryText, createNote } from '../../states/post-actions';
+import { setModal, setQueryText, createNote } from '../../states/post-actions';
 
-import HeaderBarItems from './HeaderBarItems';
+import HeaderBarSearchInput from './HeaderBarSearchInput';
+import HeaderBarAddNote from './HeaderBarAddNote';
 
 class HeaderBar extends React.Component {
+  constructor() {
+    super();
+    this.handleQueryKeyPress = this.handleQueryKeyPress.bind(this);
+    this.handlePost = this.handlePost.bind(this);
+    this.handleModal = this.handleModal.bind(this);
+  }
+
   handleQueryKeyPress(e) {
     const keyCode = e.keyCode || e.which;
     if (keyCode === 13) {
@@ -16,30 +25,38 @@ class HeaderBar extends React.Component {
     }
   }
 
-  handlePost() {
-    const note = {
-      subject: this.subject,
-      purpose: this.purpose,
-      attachment: this.attachment,
-      description: this.description,
-    };
+  handlePost(note) {
     this.props.dispatch(createNote(note));
-    this.toggle();
   }
+
+  handleModal() {
+    this.props.dispatch(setModal());
+  }
+
   render() {
     return (
       <Navbar color="faded" light expand>
         <NavbarBrand href="/">Study Notes</NavbarBrand>
         <Nav className="ml-auto" navbar>
-          <NavItem className="search-input">
-            <Input onKeyPress={this.handleQueryKeyPress} placeholder="Search Subject" />
-          </NavItem>
-          <HeaderBarItems />
+          <HeaderBarSearchInput handleQueryKeyPress={this.handleQueryKeyPress} />
+          <HeaderBarAddNote
+            modal={this.props.modal}
+            handleModal={this.handleModal}
+            handlePost={this.handlePost}
+          />
         </Nav>
       </Navbar>
-
     );
   }
 }
 
-export default connect()(HeaderBar);
+const mapStateToProps = state => ({
+  modal: state.modal,
+});
+
+HeaderBar.propTypes = {
+  modal: PropTypes.bool.isRequired,
+  dispatch: PropTypes.func.isRequired,
+};
+
+export default connect(mapStateToProps)(HeaderBar);

@@ -1,3 +1,15 @@
+
+
+export function modal(state = false, action) {
+  switch (action.type) {
+    case 'SET_MODAL':
+      return !state;
+    default:
+      return state;
+  }
+}
+
+
 export function queryText(state = '', action) {
   switch (action.type) {
     case 'SET_QUERY_TEXT':

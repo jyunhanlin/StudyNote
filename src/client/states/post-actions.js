@@ -3,6 +3,12 @@ import {
   createNote as createNoteFromAPI,
 } from '../api/api';
 
+export function setModal() {
+  return {
+    type: 'SET_MODAL',
+  };
+}
+
 export function setQueryText(queryText = '') {
   return {
     type: 'SET_QUERY_TEXT',
@@ -31,6 +37,7 @@ function endListNotes(notes) {
 
 
 export function listNotes(queryText, loading = false) {
+  // eslint-disable-next-line
   return (dispatch, getState) => {
     if (!loading) {
       dispatch(startLoading());

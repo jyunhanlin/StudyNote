@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import {
   NavItem,
@@ -6,14 +7,12 @@ import {
   Form, FormGroup, Label, Input,
 } from 'reactstrap';
 
-class HeaderBarItems extends React.Component {
-  constructor(props) {
-    super(props);
+class HeaderBarAddNote extends React.Component {
+  constructor() {
+    super();
     this.handleChange = this.handleChange.bind(this);
-
-    this.state = {
-      modal: false,
-    };
+    this.handlePost = this.handlePost.bind(this);
+    this.toggle = this.toggle.bind(this);
 
     this.toggle = this.toggle.bind(this);
     this.subject = '';
@@ -22,13 +21,22 @@ class HeaderBarItems extends React.Component {
     this.description = '';
   }
   toggle() {
-    this.setState({
-      modal: !this.state.modal,
-    });
+    this.props.handleModal();
   }
 
   handleChange(e) {
     this[e.target.name] = e.target.value;
+  }
+
+  handlePost() {
+    const note = {
+      subject: this.subject,
+      purpose: this.purpose,
+      attachment: this.attachment,
+      description: this.description,
+    };
+    this.props.handlePost(note);
+    this.toggle();
   }
 
 
@@ -36,7 +44,7 @@ class HeaderBarItems extends React.Component {
     return (
       <NavItem >
         <Button color="danger" onClick={this.toggle}>+</Button>
-        <Modal isOpen={this.state.modal} toggle={this.toggle} >
+        <Modal isOpen={this.props.modal} toggle={this.toggle} >
           <ModalHeader toggle={this.toggle}>Add a note</ModalHeader>
           <ModalBody>
             <Form>
@@ -85,6 +93,12 @@ class HeaderBarItems extends React.Component {
   }
 }
 
+HeaderBarAddNote.propTypes = {
+  modal: PropTypes.bool.isRequired,
+  handleModal: PropTypes.func.isRequired,
+  handlePost: PropTypes.func.isRequired,
+};
 
-export default HeaderBarItems;
+
+export default HeaderBarAddNote;
 
