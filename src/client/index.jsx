@@ -1,18 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { createStore, compose, applyMiddleware } from 'redux';
+import { createStore, compose, applyMiddleware, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
 import thunkMiddleware from 'redux-thunk';
 
 import { BrowserRouter } from 'react-router-dom';
 
-import StudyNote from './components/StudyNotes';
-import rootReducer from './states/rootReducer';
+import StudyNote from '../shared/components/StudyNotes';
+import rootReducer from '../shared/states/rootReducer';
 
-// eslint-disable-next-line no-underscore-dangle
+/* eslint-disable no-underscore-dangle */
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunkMiddleware)));
+const preloadedState = window.__PRELOADED_STATE__;
+/* eslint-enable no-underscore-dangle */
+
+const store = createStore(
+  rootReducer,
+  preloadedState,
+  composeEnhancers(applyMiddleware(thunkMiddleware)),
+);
 
 
 ReactDOM.render(

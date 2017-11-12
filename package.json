@@ -4,7 +4,7 @@
   "description": "",
   "main": "./src/client/index.jsx",
   "scripts": {
-    "start": "node src/server/server.js",
+    "start": "babel-node src/server/server.js",
     "build": "webpack --progress",
     "watch": "webpack --watch --progress",
     "test": "echo \"Error: no test specified\" && exit 1"

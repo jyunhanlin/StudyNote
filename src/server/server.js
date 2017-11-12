@@ -1,3 +1,5 @@
+import renderApp from './render-app';
+
 const express = require('express');
 const postRouter = require('./router/posts.js');
 const errorHandler = require('./middleware/error-handler.js');
@@ -11,6 +13,10 @@ app.use(express.static('dist', {
     res.set('Cache-Control', 'public, s-maxage=86400');
   },
 }));
+
+app.get('/', (req, res) => {
+  res.send(renderApp(req.url, null));
+});
 
 app.use('/api', postRouter);
 app.get('/*', (req, res) => res.redirect('/'));

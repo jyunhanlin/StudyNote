@@ -1,18 +1,14 @@
-import { createStore, combineReducers, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 
-import helloReducer from '../shared/reducer/hello';
+import rootReducer from '../shared/states/rootReducer';
 
 const initStore = (plainPartialState) => {
   const preloadedState = plainPartialState ? {} : undefined;
 
-  if (plainPartialState && plainPartialState.hello) {
-    preloadedState.hello = helloReducer(undefined, {})
-      .merge(plainPartialState.hello);
-  }
 
   return createStore(
-    combineReducers({ helloReducer }),
+    rootReducer,
     preloadedState, applyMiddleware(thunkMiddleware),
   );
 };

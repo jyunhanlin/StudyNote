@@ -4,7 +4,7 @@ import HeaderBar from './HeaderBar';
 import Main from './Main';
 
 
-import '../styles/bootstrap.min.css';
+// import '../styles/bootstrap.min.css';
 
 function StudyNotes() {
   return (
