@@ -1,5 +1,3 @@
-
-
 export function modal(state = false, action) {
   switch (action.type) {
     case 'SET_MODAL':
@@ -8,7 +6,6 @@ export function modal(state = false, action) {
       return state;
   }
 }
-
 
 export function queryText(state = '', action) {
   switch (action.type) {

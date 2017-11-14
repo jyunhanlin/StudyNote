@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { createStore, compose, applyMiddleware, combineReducers } from 'redux';
+import { createStore, compose, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import thunkMiddleware from 'redux-thunk';
 
@@ -20,7 +20,6 @@ const store = createStore(
   preloadedState,
   composeEnhancers(applyMiddleware(thunkMiddleware)),
 );
-
 
 ReactDOM.render(
   <Provider store={store}>

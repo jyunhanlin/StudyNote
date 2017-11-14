@@ -19,7 +19,6 @@ const renderApp = (location, plainPartialState, routerContext = {}) => {
 
   const appHtml = ReactDOMServer.renderToString(rootElement);
 
-
   return (
     `<!doctype html>
     <html>

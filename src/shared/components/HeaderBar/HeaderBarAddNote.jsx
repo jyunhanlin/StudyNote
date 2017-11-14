@@ -3,8 +3,14 @@ import PropTypes from 'prop-types';
 
 import {
   NavItem,
-  Button, Modal, ModalHeader, ModalBody,
-  Form, FormGroup, Label, Input,
+  Button,
+  Modal,
+  ModalHeader,
+  ModalBody,
+  Form,
+  FormGroup,
+  Label,
+  Input,
 } from 'reactstrap';
 
 class HeaderBarAddNote extends React.Component {
@@ -39,12 +45,13 @@ class HeaderBarAddNote extends React.Component {
     this.toggle();
   }
 
-
   render() {
     return (
-      <NavItem >
-        <Button color="danger" onClick={this.toggle}>+</Button>
-        <Modal isOpen={this.props.modal} toggle={this.toggle} >
+      <NavItem>
+        <Button color="danger" onClick={this.toggle}>
+          +
+        </Button>
+        <Modal isOpen={this.props.modal} toggle={this.toggle}>
           <ModalHeader toggle={this.toggle}>Add a note</ModalHeader>
           <ModalBody>
             <Form>
@@ -99,6 +106,4 @@ HeaderBarAddNote.propTypes = {
   handlePost: PropTypes.func.isRequired,
 };
 
-
 export default HeaderBarAddNote;
-

@@ -1,7 +1,6 @@
 const fs = require('fs');
 const moment = require('moment');
 
-
 function list(queryText = '') {
   return new Promise((resolve, reject) => {
     if (!fs.existsSync('notes.json')) {
@@ -13,9 +12,10 @@ function list(queryText = '') {
 
       let notes = data ? JSON.parse(data) : [];
       if (notes.length > 0 && queryText) {
-        notes = notes.filter(note => note.subject.toLowerCase().match(queryText.toLowerCase()) ||
-          note.purpose.toLowerCase().match(queryText.toLowerCase()) ||
-          note.description.toLowerCase().match(queryText.toLowerCase()));
+        notes = notes.filter(note =>
+          note.subject.toLowerCase().match(queryText.toLowerCase()) ||
+            note.purpose.toLowerCase().match(queryText.toLowerCase()) ||
+            note.description.toLowerCase().match(queryText.toLowerCase()));
       }
       resolve(notes);
     });
@@ -33,10 +33,7 @@ function create(note) {
     };
 
     list().then((notes) => {
-      const allNotes = [
-        newNote,
-        ...notes,
-      ];
+      const allNotes = [newNote, ...notes];
       fs.writeFile('notes.json', JSON.stringify(allNotes), (err) => {
         if (err) reject(err);
 

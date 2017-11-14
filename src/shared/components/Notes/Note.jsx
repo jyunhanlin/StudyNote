@@ -1,10 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {
-  Card, CardText, CardBody,
-  CardTitle, CardSubtitle,
-} from 'reactstrap';
-
+import { Card, CardText, CardBody, CardTitle, CardSubtitle } from 'reactstrap';
 
 function Note(props) {
   const allNotes = props.notes;
@@ -18,11 +14,7 @@ function Note(props) {
     </Card>
   ));
 
-  return (
-    <div>
-      {listNotes}
-    </div>
-  );
+  return <div>{listNotes}</div>;
 }
 
 Note.propTypes = {

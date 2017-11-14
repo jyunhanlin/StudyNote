@@ -1,7 +1,4 @@
-import {
-  listNotes as listNotesFromAPI,
-  createNote as createNoteFromAPI,
-} from '../api/api';
+import { listNotes as listNotesFromAPI, createNote as createNoteFromAPI } from '../api/api';
 
 export function setModal() {
   return {
@@ -35,21 +32,22 @@ function endListNotes(notes) {
   };
 }
 
-
 export function listNotes(queryText, loading = false) {
   // eslint-disable-next-line
   return (dispatch, getState) => {
     if (!loading) {
       dispatch(startLoading());
     }
-    return listNotesFromAPI(queryText).then((notes) => {
-      dispatch(endListNotes(notes));
-      dispatch(endLoading());
-    }).catch((err) => {
-      // eslint-disable-next-line no-console
-      console.error('Error list notes', err);
-      dispatch(endLoading());
-    });
+    return listNotesFromAPI(queryText)
+      .then((notes) => {
+        dispatch(endListNotes(notes));
+        dispatch(endLoading());
+      })
+      .catch((err) => {
+        // eslint-disable-next-line no-console
+        console.error('Error list notes', err);
+        dispatch(endLoading());
+      });
   };
 }
 
@@ -57,12 +55,14 @@ export function createNote(notes) {
   return (dispatch, getState) => {
     dispatch(startLoading());
 
-    return createNoteFromAPI(notes).then(() => {
-      dispatch(listNotes(getState().queryText), true);
-    }).catch((err) => {
-      // eslint-disable-next-line no-console
-      console.error('Error creating note', err);
-      dispatch(endLoading());
-    });
+    return createNoteFromAPI(notes)
+      .then(() => {
+        dispatch(listNotes(getState().queryText), true);
+      })
+      .catch((err) => {
+        // eslint-disable-next-line no-console
+        console.error('Error creating note', err);
+        dispatch(endLoading());
+      });
   };
 }

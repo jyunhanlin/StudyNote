@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { NavItem, Input } from 'reactstrap';
 
-
 class HeaderBarSearchInput extends React.Component {
   constructor() {
     super();

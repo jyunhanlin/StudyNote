@@ -3,7 +3,6 @@ import { Switch, Route } from 'react-router-dom';
 import Notes from '../Notes';
 import About from '../About';
 
-
 function Main() {
   return (
     <Switch>

@@ -4,7 +4,6 @@ const express = require('express');
 const postRouter = require('./router/posts.js');
 const errorHandler = require('./middleware/error-handler.js');
 
-
 const app = express();
 
 // app.use(requestLogger);

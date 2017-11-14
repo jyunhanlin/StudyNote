@@ -7,7 +7,6 @@ import Note from './Note';
 
 import { listNotes } from '../../states/post-actions';
 
-
 class Notes extends React.Component {
   componentDidMount() {
     this.props.dispatch(listNotes());
@@ -23,10 +22,11 @@ class Notes extends React.Component {
     return (
       <div className="note-cards">
         <Note notes={this.props.notes} />
-        {
-          this.props.isLoading &&
-          <Alert color="warning" className="loading">Loading...</Alert>
-        }
+        {this.props.isLoading && (
+          <Alert color="warning" className="loading">
+            Loading...
+          </Alert>
+        )}
       </div>
     );
   }

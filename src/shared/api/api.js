@@ -29,16 +29,18 @@ export function createNote(note) {
   // eslint-disable-next-line no-console
   console.log(`Making POST request to: ${url}`);
 
-  return axios.post(url, {
-    subject,
-    purpose,
-    description,
-    attachments,
-  }).then((res) => {
-    if (res.status !== 200) {
-      throw new Error(`Unexpected response code: ${res.status}`);
-    }
+  return axios
+    .post(url, {
+      subject,
+      purpose,
+      description,
+      attachments,
+    })
+    .then((res) => {
+      if (res.status !== 200) {
+        throw new Error(`Unexpected response code: ${res.status}`);
+      }
 
-    return res.data;
-  });
+      return res.data;
+    });
 }

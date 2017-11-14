@@ -9,9 +9,12 @@ router.use(accessController); // Allows cross-origin HTTP requests
 
 // List notes
 router.get('/posts', (req, res, next) => {
-  postModel.list(req.query.queryText).then((posts) => {
-    res.json(posts);
-  }).catch(next);
+  postModel
+    .list(req.query.queryText)
+    .then((posts) => {
+      res.json(posts);
+    })
+    .catch(next);
 });
 
 // Create note
@@ -23,10 +26,12 @@ router.post('/posts', (req, res, next) => {
     err.status = 400;
     throw err;
   }
-  postModel.create(note).then((post) => {
-    res.json(post);
-  }).catch(next);
+  postModel
+    .create(note)
+    .then((post) => {
+      res.json(post);
+    })
+    .catch(next);
 });
 
 module.exports = router;
-
