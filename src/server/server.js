@@ -1,4 +1,4 @@
-import renderApp from './render-app';
+import routing from './routing';
 
 const express = require('express');
 const postRouter = require('./router/posts.js');
@@ -8,14 +8,12 @@ const app = express();
 
 // app.use(requestLogger);
 app.use(express.static('dist', {
-  setHeaders: (res, path, stat) => {
+  setHeaders: (res) => {
     res.set('Cache-Control', 'public, s-maxage=86400');
   },
 }));
 
-app.get('/', (req, res) => {
-  res.send(renderApp(req.url, null));
-});
+routing(app);
 
 app.use('/api', postRouter);
 app.get('/*', (req, res) => res.redirect('/'));
